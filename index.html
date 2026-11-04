@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asfalto Riders | Suscríbete al club de motos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0e;
+      --card: #15151b;
+      --fire: #ff4d00;
+      --amber: #ffb400;
+      --text: #f4f4f6;
+      --muted: #9a9aa6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .logo { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+
+    /* NAV */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 6vw; position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    }
+    .logo { font-size: 1.9rem; }
+    .logo span { color: var(--fire); }
+    nav a {
+      color: var(--text); text-decoration: none; font-weight: 600; font-size: .9rem;
+      border: 2px solid var(--fire); padding: 8px 18px; border-radius: 50px; transition: .25s;
+    }
+    nav a:hover { background: var(--fire); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; position: relative; display: grid; align-items: center;
+      padding: 120px 6vw 60px;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(255,77,0,.35), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(255,180,0,.15), transparent 40%),
+        var(--bg);
+      overflow: hidden;
+    }
+    .speed-lines { position: absolute; inset: 0; pointer-events: none; opacity: .5; }
+    .speed-lines i {
+      position: absolute; height: 2px; width: 30vw;
+      background: linear-gradient(90deg, transparent, var(--fire), transparent);
+      animation: dash 2.4s linear infinite;
+    }
+    .speed-lines i:nth-child(1) { top: 18%; left: -30vw; animation-delay: 0s; }
+    .speed-lines i:nth-child(2) { top: 38%; left: -30vw; animation-delay: .7s; width: 20vw; }
+    .speed-lines i:nth-child(3) { top: 62%; left: -30vw; animation-delay: 1.3s; }
+    .speed-lines i:nth-child(4) { top: 82%; left: -30vw; animation-delay: 1.9s; width: 25vw; }
+    @keyframes dash { to { transform: translateX(160vw); } }
+
+    .hero-inner {
+      position: relative; z-index: 2; display: grid; gap: 40px;
+      grid-template-columns: 1.1fr .9fr; align-items: center; max-width: 1200px; margin: auto; width: 100%;
+    }
+    .tag {
+      display: inline-block; background: rgba(255,77,0,.15); color: var(--amber);
+      padding: 6px 14px; border-radius: 50px; font-size: .8rem; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(3.4rem, 9vw, 7rem); line-height: .92; }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--fire), var(--amber));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { color: var(--muted); margin: 22px 0 30px; max-width: 520px; line-height: 1.6; font-size: 1.05rem; }
+
+    /* FORM */
+    form {
+      display: flex; gap: 10px; max-width: 520px; background: var(--card);
+      padding: 8px; border-radius: 60px; border: 2px solid #2a2a33; transition: .25s;
+    }
+    form:focus-within { border-color: var(--fire); box-shadow: 0 0 30px rgba(255,77,0,.35); }
+    input[type="email"] {
+      flex: 1; min-width: 0; background: transparent; border: 0; outline: 0;
+      color: var(--text); padding: 0 20px; font-size: 1rem; font-family: inherit;
+    }
+    button {
+      background: linear-gradient(135deg, var(--fire), #ff7a00); color: #fff; border: 0;
+      padding: 15px 28px; border-radius: 50px; font-weight: 800; cursor: pointer;
+      font-family: inherit; font-size: .95rem; text-transform: uppercase; letter-spacing: 1px; transition: .25s;
+    }
+    button:hover { transform: scale(1.05); }
+    button:disabled { opacity: .6; cursor: wait; transform: none; }
+    #msg { margin-top: 16px; font-weight: 600; min-height: 24px; font-size: .95rem; }
+    #msg.ok { color: #4ade80; }
+    #msg.error { color: #ff6b6b; }
+    .small { color: var(--muted); font-size: .8rem; margin-top: 8px; }
+
+    /* BIKE */
+    .bike-wrap { position: relative; }
+    .bike-wrap svg { width: 100%; filter: drop-shadow(0 20px 40px rgba(255,77,0,.45)); animation: float 3.5s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-12px); } }
+    .wheel { transform-origin: center; transform-box: fill-box; animation: spin 1.2s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* STATS */
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;
+      padding: 50px 6vw; background: var(--fire); text-align: center;
+    }
+    .stats h2 { font-size: 3.2rem; line-height: 1; }
+    .stats p { font-weight: 800; text-transform: uppercase; font-size: .8rem; letter-spacing: 2px; }
+
+    /* BENEFITS */
+    section.benefits { padding: 90px 6vw; max-width: 1200px; margin: auto; }
+    section.benefits > h2 { font-size: clamp(2.4rem, 6vw, 4rem); text-align: center; margin-bottom: 50px; }
+    section.benefits > h2 span { color: var(--fire); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+    .card {
+      background: var(--card); padding: 34px 28px; border-radius: 20px; border: 1px solid #25252e;
+      transition: .3s; position: relative; overflow: hidden;
+    }
+    .card:hover { transform: translateY(-8px); border-color: var(--fire); box-shadow: 0 15px 40px rgba(255,77,0,.2); }
+    .card .ico { font-size: 2.6rem; margin-bottom: 14px; }
+    .card h3 { font-size: 1.7rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); line-height: 1.55; font-size: .95rem; }
+
+    /* CTA FINAL */
+    .final {
+      text-align: center; padding: 90px 6vw;
+      background: linear-gradient(135deg, #1a0a02, var(--bg));
+      border-top: 3px solid var(--fire);
+    }
+    .final h2 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+    .final p { color: var(--muted); margin: 14px 0 28px; }
+    .final a {
+      display: inline-block; background: var(--amber); color: #000; text-decoration: none;
+      padding: 16px 38px; border-radius: 50px; font-weight: 800; text-transform: uppercase; transition: .25s;
+    }
+    .final a:hover { transform: scale(1.07); }
+
+    footer { text-align: center; padding: 30px; color: var(--muted); font-size: .85rem; border-top: 1px solid #1f1f26; }
+
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .lead, form { margin-left: auto; margin-right: auto; }
+      .bike-wrap { order: -1; max-width: 480px; margin: auto; }
+    }
+    @media (max-width: 480px) {
+      form { flex-direction: column; border-radius: 24px; padding: 14px; }
+      input[type="email"] { padding: 12px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">ASFALTO<span>RIDERS</span></div>
+    <a href="#suscribirse">Unirme</a>
+  </nav>
+
+  <header class="hero" id="suscribirse">
+    <div class="speed-lines"><i></i><i></i><i></i><i></i></div>
+    <div class="hero-inner">
+      <div>
+        <span class="tag">🔥 Club de motociclistas</span>
+        <h1>Vive la <em>velocidad</em><br>sin límites</h1>
+        <p class="lead">Suscríbete y recibe rutas épicas, ofertas en equipo de protección, lanzamientos de motos y eventos exclusivos directo en tu correo.</p>
+
+        <!-- FORMULARIO DE UN SOLO CAMPO -->
+        <form id="form-suscripcion" novalidate>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+          <button type="submit" id="btn">Suscribirme</button>
+        </form>
+        <p id="msg" role="status" aria-live="polite"></p>
+        <p class="small">Sin spam. Puedes darte de baja cuando quieras.</p>
+      </div>
+
+      <div class="bike-wrap">
+        <!-- Moto original dibujada en SVG -->
+        <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustración de una moto deportiva">
+          <defs>
+            <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff4d00"/><stop offset="1" stop-color="#ffb400"/>
+            </linearGradient>
+          </defs>
+          <!-- ruedas -->
+          <g>
+            <circle cx="130" cy="250" r="75" fill="#0b0b0e" stroke="#2a2a33" stroke-width="12"/>
+            <g class="wheel">
+              <circle cx="130" cy="250" r="50" fill="none" stroke="#ff4d00" stroke-width="4" stroke-dasharray="18 10"/>
+              <line x1="130" y1="200" x2="130" y2="300" stroke="#666" stroke-width="3"/>
+              <line x1="80" y1="250" x2="180" y2="250" stroke="#666" stroke-width="3"/>
+            </g>
+            <circle cx="130" cy="250" r="12" fill="#ffb400"/>
+          </g>
+          <g>
+            <circle cx="470" cy="250" r="75" fill="#0b0b0e" stroke="#2a2a33" stroke-width="12"/>
+            <g class="wheel">
+              <circle cx="470" cy="250" r="50" fill="none" stroke="#ff4d00" stroke-width="4" stroke-dasharray="18 10"/>
+              <line x1="470" y1="200" x2="470" y2="300" stroke="#666" stroke-width="3"/>
+              <line x1="420" y1="250" x2="520" y2="250" stroke="#666" stroke-width="3"/>
+            </g>
+            <circle cx="470" cy="250" r="12" fill="#ffb400"/>
+          </g>
+          <!-- horquilla delantera -->
+          <path d="M470 250 L430 130" stroke="#ccc" stroke-width="9" stroke-linecap="round"/>
+          <!-- manubrio -->
+          <path d="M420 120 L455 108 L480 112" stroke="#eee" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <!-- chasis / motor -->
+          <path d="M130 250 L250 235 L330 250 L430 130" stroke="#999" stroke-width="9" fill="none" stroke-linejoin="round"/>
+          <rect x="235" y="215" width="100" height="62" rx="12" fill="#2a2a33" stroke="#ff4d00" stroke-width="3"/>
+          <rect x="250" y="228" width="70" height="8" rx="4" fill="#ff4d00"/>
+          <rect x="250" y="244" width="70" height="8" rx="4" fill="#ffb400"/>
+          <!-- tanque -->
+          <path d="M240 160 Q300 100 400 125 L415 160 Q330 185 250 190 Z" fill="url(#body)"/>
+          <!-- carenado frontal -->
+          <path d="M400 125 L445 120 L440 170 L415 165 Z" fill="#ff4d00"/>
+          <!-- asiento -->
+          <path d="M140 175 Q190 150 250 165 L248 190 Q190 195 135 195 Z" fill="#1c1c24" stroke="#ff4d00" stroke-width="2"/>
+          <!-- cola -->
+          <path d="M135 170 Q100 165 80 185 L135 195 Z" fill="url(#body)"/>
+          <!-- escape -->
+          <path d="M160 270 L60 285" stroke="#bbb" stroke-width="14" stroke-linecap="round"/>
+          <path d="M60 285 L40 288" stroke="#ff4d00" stroke-width="14" stroke-linecap="round"/>
+          <!-- faro -->
+          <circle cx="448" cy="145" r="9" fill="#fff3b0"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div><h2>+12K</h2><p>Riders suscritos</p></div>
+    <div><h2>250</h2><p>Rutas exclusivas</p></div>
+    <div><h2>-30%</h2><p>En equipo de protección</p></div>
+    <div><h2>24/7</h2><p>Comunidad activa</p></div>
+  </div>
+
+  <section class="benefits">
+    <h2>¿Qué recibirás como <span>suscriptor</span>?</h2>
+    <div class="grid">
+      <div class="card"><div class="ico">🏍️</div><h3>Lanzamientos</h3><p>Entérate primero de las nuevas motos deportivas, naked, scooters y adventure del mercado.</p></div>
+      <div class="card"><div class="ico">🗺️</div><h3>Rutas épicas</h3><p>Recorridos seleccionados por montañas, costas y carreteras que todo rider debe conocer.</p></div>
+      <div class="card"><div class="ico">🪖</div><h3>Ofertas de equipo</h3><p>Descuentos en cascos, guantes, chaquetas y accesorios para rodar con seguridad.</p></div>
+      <div class="card"><div class="ico">🏁</div><h3>Eventos</h3><p>Invitaciones a encuentros, rodadas grupales y concentraciones de motociclistas.</p></div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>El camino te está esperando</h2>
+    <p>Únete hoy y recibe tu correo de bienvenida al instante.</p>
+    <a href="#suscribirse">Quiero suscribirme</a>
+  </section>
+
+  <footer>© <span id="year"></span> Asfalto Riders · Maneja con casco, maneja con cabeza.</footer>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    /* =====================================================
+       CONFIGURACIÓN DE EMAILJS  (reemplaza con TUS datos)
+       Los encuentras en https://dashboard.emailjs.com
+       ===================================================== */
+    const EMAILJS_PUBLIC_KEY  = "TU_PUBLIC_KEY";   // Account > General > Public Key
+    const EMAILJS_SERVICE_ID  = "TU_SERVICE_ID";   // Email Services
+    const EMAILJS_TEMPLATE_ID = "TU_TEMPLATE_ID";  // Email Templates
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const configurado = !EMAILJS_PUBLIC_KEY.startsWith("TU_");
+    if (configurado) emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    const form = document.getElementById("form-suscripcion");
+    const input = document.getElementById("email");
+    const btn = document.getElementById("btn");
+    const msg = document.getElementById("msg");
+
+    function mostrar(texto, tipo) {
+      msg.textContent = texto;
+      msg.className = tipo;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = input.value.trim();
+      const valido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+      if (!valido) {
+        mostrar("⚠️ Escribe un correo electrónico válido.", "error");
+        input.focus();
+        return;
+      }
+      if (!configurado) {
+        mostrar("⚠️ Falta configurar tus claves de EmailJS en el código.", "error");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Enviando…";
+      mostrar("", "");
+
+      try {
+        // Los nombres de las variables deben coincidir con {{...}} de la plantilla
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: email,
+          year: new Date().getFullYear()
+        });
+        mostrar("✅ ¡Listo! Revisa tu bandeja (y spam) para ver tu correo de bienvenida.", "ok");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        mostrar("❌ No pudimos enviar el correo. Intenta de nuevo en un momento.", "error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Suscribirme";
+      }
+    });
+  </script>
+</body>
+</html>
