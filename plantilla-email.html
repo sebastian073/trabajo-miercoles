@@ -5,94 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenido a Asfalto Riders</title>
 </head>
-<body style="margin:0; padding:0; background-color:#0b0b0e; font-family:Arial, Helvetica, sans-serif;">
+<body style="margin:0; padding:0; background-color:#050507; font-family:Arial, Helvetica, sans-serif;">
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0b0b0e; padding:24px 0;">
+  <!-- Texto de vista previa (lo que se ve junto al asunto en la bandeja) -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0; font-size:1px; line-height:1px; color:#050507;">
+    Tu suscripción está confirmada. Tienes 15% de descuento de bienvenida con el código RIDER15.
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#050507" style="background-color:#050507;">
     <tr>
-      <td align="center">
+      <td align="center" style="padding:24px 12px;">
 
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:100%; background-color:#15151b; border-radius:16px; overflow:hidden; border:1px solid #2a2a33;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#15151b" style="width:100%; max-width:600px; background-color:#15151b; border-radius:18px; overflow:hidden; border:1px solid #2a2a33;">
 
           <!-- ============ SECCIÓN 1: LOGO ============ -->
           <tr>
-            <td align="center" style="background-color:#000000; padding:28px 20px; border-bottom:4px solid #ff4d00;">
-              <span style="font-family:Impact, 'Arial Black', sans-serif; font-size:34px; letter-spacing:3px; color:#ffffff;">
-                🏍️ ASFALTO<span style="color:#ff4d00;">RIDERS</span>
-              </span>
-            </td>
-          </tr>
-
-          <!-- ============ SECCIÓN 2: SALUDO / HERO ============ -->
-          <tr>
-            <td align="center" style="background-color:#ff4d00; padding:44px 30px;">
-              <p style="margin:0 0 8px 0; font-size:13px; font-weight:bold; letter-spacing:3px; color:#000000; text-transform:uppercase;">
-                Suscripción confirmada
-              </p>
-              <h1 style="margin:0; font-family:Impact, 'Arial Black', sans-serif; font-size:44px; line-height:48px; color:#ffffff; letter-spacing:1px;">
-                ¡BIENVENIDO AL CLUB, RIDER!
-              </h1>
-              <p style="margin:16px 0 0 0; font-size:16px; line-height:24px; color:#ffffff;">
-                Hola <strong>{{to_email}}</strong>, gracias por unirte. Desde hoy rodarás con nosotros.
-              </p>
-            </td>
-          </tr>
-
-          <!-- ============ SECCIÓN 3: CONTENIDO (qué recibirás) ============ -->
-          <tr>
-            <td style="padding:36px 30px 10px 30px;">
-              <h2 style="margin:0 0 18px 0; font-family:Impact, 'Arial Black', sans-serif; font-size:26px; color:#ffb400; letter-spacing:1px;">
-                ESTO TE ESPERA EN TU BANDEJA
-              </h2>
-              <p style="margin:0 0 14px 0; font-size:15px; line-height:23px; color:#d4d4dc;">
-                🗺️ <strong style="color:#ffffff;">Rutas épicas:</strong> recorridos por montañas y costas seleccionados por la comunidad.
-              </p>
-              <p style="margin:0 0 14px 0; font-size:15px; line-height:23px; color:#d4d4dc;">
-                🪖 <strong style="color:#ffffff;">Ofertas de equipo:</strong> descuentos en cascos, guantes y chaquetas.
-              </p>
-              <p style="margin:0 0 14px 0; font-size:15px; line-height:23px; color:#d4d4dc;">
-                🏁 <strong style="color:#ffffff;">Eventos exclusivos:</strong> rodadas grupales y encuentros de motociclistas.
-              </p>
-            </td>
-          </tr>
-
-          <!-- ============ SECCIÓN 4: BLOQUE DE DESCUENTO ============ -->
-          <tr>
-            <td align="center" style="padding:10px 30px 20px 30px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#1f1f27; border:2px dashed #ffb400; border-radius:12px;">
+            <td align="center" bgcolor="#000000" style="background-color:#000000; padding:20px 20px; border-bottom:4px solid #ff4d00;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                  <td align="center" style="padding:22px;">
-                    <p style="margin:0; font-size:13px; letter-spacing:2px; color:#9a9aa6; text-transform:uppercase;">Tu regalo de bienvenida</p>
-                    <p style="margin:6px 0; font-family:Impact, 'Arial Black', sans-serif; font-size:40px; color:#ff4d00; letter-spacing:2px;">-15% OFF</p>
-                    <p style="margin:0; font-size:14px; color:#ffffff;">Usa el código <strong style="background-color:#ffb400; color:#000000; padding:3px 10px; border-radius:4px;">RIDER15</strong></p>
+                  <td valign="middle" style="padding-right:12px;">
+                    <img src="https://raw.githubusercontent.com/sebastian073/trabajo-miercoles/main/img/logo.png" width="52" height="52" alt="Logo Asfalto Riders" style="display:block; border:0; outline:none; width:52px; height:52px; border-radius:12px;">
+                  </td>
+                  <td valign="middle" style="font-family:Impact, 'Arial Black', Arial, sans-serif; font-size:32px; letter-spacing:3px; color:#ffffff; line-height:36px;">
+                    ASFALTO<span style="color:#ff4d00;">RIDERS</span>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- ============ SECCIÓN 5: BOTÓN CTA ============ -->
+          <!-- ============ SECCIÓN 2: IMAGEN PRINCIPAL (HERO) ============ -->
           <tr>
-            <td align="center" style="padding:10px 30px 40px 30px;">
+            <td style="padding:0; line-height:0; font-size:0;">
+              <img src="https://raw.githubusercontent.com/sebastian073/trabajo-miercoles/main/img/hero.png" width="600" alt="Moto deportiva naranja en la carretera al atardecer" style="display:block; width:100%; max-width:600px; height:auto; border:0; outline:none;">
+            </td>
+          </tr>
+
+          <!-- ============ SECCIÓN 3: SALUDO ============ -->
+          <tr>
+            <td align="center" bgcolor="#ff4d00" style="background-color:#ff4d00; padding:36px 28px;">
+              <p style="margin:0 0 8px 0; font-size:12px; font-weight:bold; letter-spacing:4px; color:#000000; text-transform:uppercase;">
+                Suscripción confirmada
+              </p>
+              <h1 style="margin:0; font-family:Impact, 'Arial Black', Arial, sans-serif; font-size:42px; line-height:46px; color:#ffffff; letter-spacing:1px; font-weight:normal;">
+                ¡BIENVENIDO AL CLUB, RIDER!
+              </h1>
+              <p style="margin:16px 0 0 0; font-size:16px; line-height:25px; color:#ffffff;">
+                Hola <strong>{{to_email}}</strong>, ya eres parte de la comunidad.<br>
+                Desde hoy rodarás con nosotros: rutas, ofertas y eventos directo en tu correo.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ============ SECCIÓN 4: CONTENIDO (3 beneficios con imagen) ============ -->
+          <tr>
+            <td style="padding:38px 20px 10px 20px;">
+              <h2 style="margin:0 0 26px 0; text-align:center; font-family:Impact, 'Arial Black', Arial, sans-serif; font-size:26px; letter-spacing:1px; color:#ffb400; font-weight:normal;">
+                ESTO TE ESPERA EN TU BANDEJA
+              </h2>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="33%" align="center" valign="top" style="padding:0 8px 20px 8px;">
+                    <img src="https://raw.githubusercontent.com/sebastian073/trabajo-miercoles/main/img/icon-ruta.png" width="84" height="84" alt="Rutas" style="display:block; border:0; width:84px; height:84px; margin:0 auto 12px auto;">
+                    <p style="margin:0 0 6px 0; font-size:16px; font-weight:bold; color:#ffffff;">Rutas épicas</p>
+                    <p style="margin:0; font-size:13px; line-height:19px; color:#b4b4c0;">Recorridos por montañas y costas elegidos por la comunidad.</p>
+                  </td>
+                  <td width="33%" align="center" valign="top" style="padding:0 8px 20px 8px;">
+                    <img src="https://raw.githubusercontent.com/sebastian073/trabajo-miercoles/main/img/icon-casco.png" width="84" height="84" alt="Equipo" style="display:block; border:0; width:84px; height:84px; margin:0 auto 12px auto;">
+                    <p style="margin:0 0 6px 0; font-size:16px; font-weight:bold; color:#ffffff;">Ofertas de equipo</p>
+                    <p style="margin:0; font-size:13px; line-height:19px; color:#b4b4c0;">Descuentos en cascos, guantes y chaquetas para rodar seguro.</p>
+                  </td>
+                  <td width="33%" align="center" valign="top" style="padding:0 8px 20px 8px;">
+                    <img src="https://raw.githubusercontent.com/sebastian073/trabajo-miercoles/main/img/icon-bandera.png" width="84" height="84" alt="Eventos" style="display:block; border:0; width:84px; height:84px; margin:0 auto 12px auto;">
+                    <p style="margin:0 0 6px 0; font-size:16px; font-weight:bold; color:#ffffff;">Eventos exclusivos</p>
+                    <p style="margin:0; font-size:13px; line-height:19px; color:#b4b4c0;">Rodadas grupales y encuentros de motociclistas.</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============ SECCIÓN 5: CUPÓN DE DESCUENTO ============ -->
+          <tr>
+            <td align="center" style="padding:10px 28px 24px 28px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#1f1f27" style="background-color:#1f1f27; border:2px dashed #ffb400; border-radius:14px;">
+                <tr>
+                  <td align="center" style="padding:24px 16px;">
+                    <p style="margin:0; font-size:12px; letter-spacing:3px; color:#9a9aa6; text-transform:uppercase;">Tu regalo de bienvenida</p>
+                    <p style="margin:8px 0; font-family:Impact, 'Arial Black', Arial, sans-serif; font-size:48px; line-height:52px; color:#ff4d00; letter-spacing:2px;">-15% OFF</p>
+                    <p style="margin:0; font-size:14px; color:#ffffff;">
+                      Usa el código
+                      <strong style="background-color:#ffb400; color:#000000; padding:4px 12px; border-radius:5px; letter-spacing:2px;">RIDER15</strong>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============ SECCIÓN 6: BOTÓN CTA ============ -->
+          <tr>
+            <td align="center" style="padding:6px 28px 42px 28px;">
               <a href="https://www.ejemplo.com/tienda"
-                 style="display:inline-block; background-color:#ff4d00; color:#ffffff; text-decoration:none; font-weight:bold; font-size:16px; letter-spacing:1px; text-transform:uppercase; padding:16px 40px; border-radius:50px;">
-                Ver ofertas ahora →
+                 style="display:inline-block; background-color:#ff4d00; color:#ffffff; text-decoration:none; font-weight:bold; font-size:16px; letter-spacing:1px; text-transform:uppercase; padding:17px 44px; border-radius:50px; border-bottom:4px solid #b83600;">
+                Ver ofertas ahora &rarr;
               </a>
             </td>
           </tr>
 
-          <!-- ============ SECCIÓN 6: FOOTER ============ -->
+          <!-- ============ SECCIÓN 7: FOOTER ============ -->
           <tr>
-            <td align="center" style="background-color:#000000; padding:26px 30px; border-top:4px solid #ff4d00;">
-              <p style="margin:0 0 8px 0; font-size:13px; color:#ffffff; font-weight:bold;">
-                Maneja con casco, maneja con cabeza. 🪖
+            <td align="center" bgcolor="#000000" style="background-color:#000000; padding:28px 24px; border-top:4px solid #ff4d00;">
+              <img src="https://raw.githubusercontent.com/sebastian073/trabajo-miercoles/main/img/logo.png" width="36" height="36" alt="Asfalto Riders" style="display:block; border:0; width:36px; height:36px; margin:0 auto 12px auto; border-radius:9px;">
+              <p style="margin:0 0 10px 0; font-size:13px; color:#ffffff; font-weight:bold;">
+                Maneja con casco, maneja con cabeza.
               </p>
-              <p style="margin:0 0 8px 0; font-size:12px; line-height:18px; color:#9a9aa6;">
+              <p style="margin:0 0 10px 0; font-size:12px; line-height:18px; color:#9a9aa6;">
                 Recibes este correo porque te suscribiste con {{to_email}}.<br>
-                © {{year}} Asfalto Riders. Todos los derechos reservados.
+                &copy; {{year}} Asfalto Riders. Todos los derechos reservados.
               </p>
               <p style="margin:0; font-size:12px;">
                 <a href="https://www.ejemplo.com/baja" style="color:#ffb400; text-decoration:underline;">Darme de baja</a>
-                &nbsp;·&nbsp;
+                &nbsp;&middot;&nbsp;
                 <a href="https://www.ejemplo.com/privacidad" style="color:#ffb400; text-decoration:underline;">Política de privacidad</a>
               </p>
             </td>
